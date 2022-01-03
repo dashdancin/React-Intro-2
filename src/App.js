@@ -1,27 +1,32 @@
-import React from "react";
+import React from 'react';
+import {ToDoItem} from './components/ToDoItem';
+import {ToDoCounter} from './components/ToDoCounter';
+import {ToDoList} from './components/ToDoList';
+import {ToDoSearch} from './components/ToDoSearch';
+import {CreateToDoButton} from './components/CreateToDoButton';
 
-// {const todos = [
-//   { text: 'Cortar cebolla', completed: false},
-//   { text: 'Tomar el curso de intro a React', completed: false},
-//   { text: 'Llorar con la llorona', completed: false},
-// ];}
+
+const todos = [
+  { text: 'Cortar cebolla', completed: false},
+  { text: 'Tomar el curso de intro a React', completed: false},
+  { text: 'Llorar con la llorona', completed: false},
+];
 
 function App() {
   return (
     <div>
-      {/* {<ToDoCounter/>} */}
-      <h2>Has completado 2 de 3 ToDos</h2>
-      {/* {<ToDoSearch/>} */}
+      {<ToDoCounter/>}
+      {<ToDoSearch/>}
       <input placeholder="Cebolla" />
-      {/* {<ToDoList>
+      <ToDoList>
         {todos.map(todo => (
-        <ToDoItem/> 
+        <ToDoItem key={todo.text} text={todo.text}/> 
         ))} 
-      </ToDoList>} */}
-      {/* {<CraeteToDoButton/>} */}
+      </ToDoList>
+      <CreateToDoButton/>
       <button>+</button>
     </div>
-  )
+  );
 }
 
 export default App;
