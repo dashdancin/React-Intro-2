@@ -7,25 +7,28 @@ import {CreateToDoButton} from './components/CreateToDoButton';
 
 
 const todos = [
-  { text: 'Cortar cebolla', completed: false},
+  { text: 'Cortar pan', completed: true},
   { text: 'Tomar el curso de intro a React', completed: false},
   { text: 'Llorar con la llorona', completed: false},
 ];
 
 function App() {
   return (
-    <div>
+    <>
       {<ToDoCounter/>}
       {<ToDoSearch/>}
-      <input placeholder="Cebolla" />
       <ToDoList>
-        {todos.map(todo => (
-        <ToDoItem key={todo.text} text={todo.text}/> 
+        {todos.map(todo =>(
+        <ToDoItem 
+        key={todo.text} 
+        text={todo.text}
+        completed={todo.completed}
+        /> 
         ))} 
       </ToDoList>
       <CreateToDoButton/>
       <button>+</button>
-    </div>
+    </>
   );
 }
 
